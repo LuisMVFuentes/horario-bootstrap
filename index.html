@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 card">
+                <div class="row">
+                    <div class="form-group col-sm-8">
+                        <label for="idNombre">Nombre</label>
+                        <input class="form-control" type="text" name="nombre" id="idNombre">
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="idColor">Color</label>
+                        <input class="form-control" type="color" name="color" id="idColor">
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="idCiclo">Ciclo</label>
+                        <select class="form-control" name="ciclo" id="idCiclo"></select>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label for="idCodigo">Codigo</label>
+                        <input class="form-control" type="text" name="codigo" id="idCodigo">
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="idCreditos">Creditos</label>
+                        <input class="form-control" type="text" name="creditos" id="idCreditos">
+                    </div>
+                </div>
+
+
+                <div class="container card">
+                    <div class="row">
+                        <div class="form-group col-sm-8">
+                            <label for="idDia ">Dia</label>
+                            <select class="form-control" name="dia " id="idDia "></select>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="idAula ">Aula</label>
+                            <input class="form-control" type="text " name="aula " id="idAula ">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="idHinicio ">H. Ini</label>
+                            <select class="form-control" name="hInicio " id="idHinicio "></select>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label for="idHfin ">H. Fin</label>
+                            <select class="form-control" name="hFin " id="idHfin "></select>
+                        </div>
+                    </div>
+                    <button id="idAgregar " type="button" class="btn btn-secondary">Agregar</button>
+                    <br>
+                    <div class="table-responsive container ">
+                        <table class="table" id="tblhoras">
+                            <tr>
+                                <th>Dia</th>
+                                <th>Horas</th>
+                                <th>Aula</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br>
+                <button id="idAgregarCurso " type="button" class="btn btn-secondary">Agregar Curso</button>
+                <br>
+            </div>
+
+            <div class="col-sm-8 card ">
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover table-bordered" id="tblHorario" style="text-align: center">
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript" src="js/variables.js"></script>
+
+        <script type="text/javascript" src="js/script.js"></script>
+
+        <script type="text/javascript" src="js/init-1.js"></script>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
+
+        <script>
+            $(function() {
+                $('[data-toggle="tooltip"]').tooltip();
+            })
+        </script>
+</body>
+
+</html>
