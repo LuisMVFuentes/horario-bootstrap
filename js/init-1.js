@@ -4,4 +4,6 @@ window.addEventListener('load', function() {
     btnAgregarCurso.addEventListener('click', agregarCursos);
     cargarHorario();
     rellenar();
+    autocomplete(nombre, cursosPlan);
+    autocomplete(codigo, codigosCursos);
 });
