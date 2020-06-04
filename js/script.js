@@ -1,4 +1,8 @@
 function cargarListas() {
+    hInicio.innerHTML = '';
+    hFin.innerHTML = '';
+    ciclo.innerHTML = '';
+
     var opciones = '<option disabled selected value=\"-1\">--</option>';
     for (let i = 0; i < horasdelasemana.length; i++) {
         opciones += '<option value=\"' + i + '\">' + horasdelasemana[i] + '</option>';
