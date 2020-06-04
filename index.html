@@ -11,6 +11,8 @@
 
     <link rel="shortcut icon" href="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" type="image/x-icon">
 
+    <link rel="stylesheet" href="css/style.css">
+
     <title>Generar Horario</title>
 </head>
 
@@ -29,25 +31,25 @@
             <div class="col-sm-4 card">
                 <h4 style="text-align: center; padding: 15px 0 0 0;">Formulario</h4>
                 <div class="row">
-                    <div class="form-group col-sm-8">
+                    <div class="form-group col-sm-8 autocomplete">
                         <label for="idNombre">Nombre</label>
-                        <input class="form-control" type="text" name="nombre" id="idNombre">
+                        <input class="form-control" type="text" name="nombre" id="idNombre" autocomplete="on">
                     </div>
                     <div class="form-group col-sm-4">
                         <label for="idColor">Color</label>
-                        <input class="form-control" type="color" name="color" id="idColor">
+                        <input class="form-control" type="color" name="color" id="idColor" autocomplete="on">
                     </div>
                     <div class="form-group col-sm-3">
                         <label for="idCiclo">Ciclo</label>
                         <select class="form-control" name="ciclo" id="idCiclo"></select>
                     </div>
-                    <div class="form-group col-sm-5">
+                    <div class="form-group col-sm-5 autocomplete">
                         <label for="idCodigo">Codigo</label>
-                        <input class="form-control" type="text" name="codigo" id="idCodigo">
+                        <input class="form-control autocomplete" type="text" name="codigo" id="idCodigo" autocomplete="on">
                     </div>
                     <div class="form-group col-sm-4">
                         <label for="idCreditos">Creditos</label>
-                        <input class="form-control" type="text" name="creditos" id="idCreditos">
+                        <input class="form-control" type="text" name="creditos" id="idCreditos" autocomplete="on">
                     </div>
                 </div>
 
@@ -55,25 +57,25 @@
                 <div class="container card">
                     <div class="row">
                         <div class="form-group col-sm-8">
-                            <label for="idDia ">Dia</label>
-                            <select class="form-control" name="dia " id="idDia "></select>
+                            <label for="idDia">Dia</label>
+                            <select class="form-control" name="dia" id="idDia"></select>
                         </div>
                         <div class="form-group col-sm-4">
-                            <label for="idAula ">Aula</label>
-                            <input class="form-control" type="text " name="aula " id="idAula ">
+                            <label for="idAula">Aula</label>
+                            <input class="form-control" type="text" name="aula" id="idAula" autocomplete="on">
                         </div>
                         <div class="form-group col-sm-6">
-                            <label for="idHinicio ">H. Ini</label>
-                            <select class="form-control" name="hInicio " id="idHinicio "></select>
+                            <label for="idHinicio">H. Ini</label>
+                            <select class="form-control" name="hInicio" id="idHinicio"></select>
                         </div>
                         <div class="form-group col-sm-6">
-                            <label for="idHfin ">H. Fin</label>
-                            <select class="form-control" name="hFin " id="idHfin "></select>
+                            <label for="idHfin">H. Fin</label>
+                            <select class="form-control" name="hFin" id="idHfin"></select>
                         </div>
                     </div>
-                    <button id="idAgregar " type="button" class="btn btn-secondary">Agregar</button>
+                    <button id="idAgregar" type="button" class="btn btn-secondary">Agregar</button>
                     <br>
-                    <div class="table-responsive container ">
+                    <div class="table-responsive container">
                         <table class="table" id="tblhoras">
                             <tr>
                                 <th>Dia</th>
@@ -84,11 +86,11 @@
                     </div>
                 </div>
                 <br>
-                <button id="idAgregarCurso " type="button" class="btn btn-secondary">Agregar Curso</button>
+                <button id="idAgregarCurso" type="button" class="btn btn-secondary">Agregar Curso</button>
                 <br>
             </div>
 
-            <div class="col-sm-8 card ">
+            <div class="col-sm-8 card">
                 <h4 style="text-align: center; padding: 15px 0 0 0;">Horario</h4>
                 <div class="table-responsive">
                     <table class="table table-sm table-hover table-bordered" id="tblHorario" style="text-align: center">
@@ -111,12 +113,14 @@
 
         <script type="text/javascript" src="js/init-1.js"></script>
 
+        <script type="text/javascript" src="js/autocomplete.js"></script>
+
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
         <script>
             $(function() {
