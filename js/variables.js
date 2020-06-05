@@ -137,7 +137,29 @@ var codigosCursos = ['ED107',
     'IS556'
 ]
 
-var cursos = [];
+var cursos = [{
+    Nombre: 'ORGANIZACION Y METODOS',
+    Ciclo: 5,
+    Codigo: 'AD326',
+    Creditos: 3,
+    Color: '#ffffff',
+    Hora: [{
+        dia: 'Martes',
+        horas: ['12:30', '13:20'],
+        aula: 'Aul.32'
+    }]
+}, {
+    Nombre: 'ORGANIZACION Y METODOS',
+    Ciclo: 5,
+    Codigo: 'AD326',
+    Creditos: 3,
+    Color: '#ffffff',
+    Hora: [{
+        dia: 'Jueves',
+        horas: ['12:30', '13:20'],
+        aula: 'Mlt.01'
+    }]
+}];
 
 var element = document.getElementsByTagName('body')[0];
 element = element.getElementsByTagName('div')[0];
@@ -177,3 +199,5 @@ var btnAgregarCurso = col4.getElementsByTagName('button')[1];
 var tblHoras = document.getElementById('tblhoras');
 
 var tblHorario = (col8.getElementsByTagName('div')[0]).getElementsByTagName('table')[0];
+
+var listCursos = (col8.getElementsByTagName('div')[0]).getElementsByClassName('cursoslist')[0];
