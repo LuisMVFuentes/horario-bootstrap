@@ -90,7 +90,7 @@ function agregarCursos() {
             '</tr>';
         cargarListas();
     }
-
+    eliminarPopper();
     cargarCursosList();
     cargarHorario();
     rellenar();
@@ -148,6 +148,13 @@ function rellenar() {
                                 var texto1 = document.createTextNode(cursos[i].Codigo);
 
                                 tr1.appendChild(texto1);
+
+                                var sc = document.createElement('script');
+                                sc.innerHTML = ' $(document).ready(function() {' +
+                                    '$(\'[data-toggle="tooltip"]\').tooltip()' +
+                                    '});';
+                                tr1.appendChild(sc);
+
                                 tablacasillero.appendChild(tr1);
                                 casillero1.appendChild(tablacasillero);
                                 //document.getElementById(pintar2).innerHTML = cursos[i].Codigo;
@@ -169,20 +176,31 @@ function cargarCursosList() {
             const element1 = element.Hora[j];
             cadena += '<' + element1.dia.substring(0, 2) + '>' + element1.horas + ' ' + element1.aula;
         }
-        listCursos.innerHTML += '<button type=\"button\" onclick="\eliminarCurso(' + i + ')"\ class=\"btn btn-secondary btn-sm\" href=\"#\" title=\"' + element.Nombre + '\" data-toggle=\"popover\" data-trigger=\"hover\" data-content=\"[Ciclo: ' + element.Ciclo + '] [Creditos: ' + element.Creditos + '][' + cadena + '] \">' + element.Codigo + ' - ' + element.Nombre + '</button>';
+        listCursos.innerHTML += '<button type=\"button\" onclick="\eliminarCurso(' + i + ')"\ class=\"btn btn-secondary btn-sm\" href=\"#\" title=\"' + element.Nombre + '\" data-toggle=\"popover\" data-placement=\"top\" data-trigger=\"hover\" data-content=\"[Ciclo: ' + element.Ciclo + '] [Creditos: ' + element.Creditos + '][' + cadena + '] \">' + element.Codigo + ' - ' + element.Nombre + '</button>';
     }
     var sc = document.createElement('script');
     sc.innerHTML = ' $(document).ready(function() {' +
         '$(\'[data-toggle="popover"]\').popover();' +
-        '$(\'[data-toggle="tooltip"]\').tooltip()' +
+        '$(\'.popover-dismiss\').popover({' +
+        'trigger: \'hover\'' +
+        '})' +
         '});';
     listCursos.appendChild(sc);
 }
 
+function eliminarPopper() {
+    var body = document.getElementsByTagName('body')[0];
+    var popovers = document.getElementsByClassName('popover');
+    for (let i = 0; i < popovers.length; i++) {
+        const element = popovers[i];
+        body.removeChild(element);
+    }
+}
 
 function eliminarCurso(indice) {
     if (confirm('¿Desea Eliminar ' + cursos[indice].Codigo + ' - ' + cursos[indice].Nombre + ' ?')) {
         cursos.splice(indice, 1);
+        eliminarPopper();
         cargarCursosList();
         cargarHorario();
         rellenar();
