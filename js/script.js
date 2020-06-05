@@ -189,3 +189,33 @@ function eliminarCurso(indice) {
     }
 
 }
+
+
+function imprimir(nombre) {
+    var html = '<!DOCTYPE html>' +
+        '<html lang=\"es\\">' +
+        '<head>' +
+        '<meta charset=\"UTF-8\">' +
+        '<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">' +
+        '<title>Imprimir</title>' +
+        '<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\" integrity=\"sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk\" crossorigin=\"anonymous\"></link>' +
+        '</head>' +
+        '<body>' +
+        '<div class=\"container\" style=\"margin:auto\">' +
+        '<div class=\"row\">' +
+        '<div class=\"col-sm-12 card\">' +
+        '<div class=\"table-responsive\">' +
+        '<table class=\"table table-sm table-hover table-bordered\" id=\"tblHorario\" style=\"text-align: center\">' +
+        tblHorario.innerHTML + '</table>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</body>' +
+        '</html>';
+    var ventimp = window.open(' ', 'popimpr');
+    ventimp.document.write(html);
+    ventimp.document.close();
+    ventimp.print();
+    ventimp.close();
+}
