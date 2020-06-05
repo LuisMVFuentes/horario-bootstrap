@@ -169,7 +169,7 @@ function cargarCursosList() {
             const element1 = element.Hora[j];
             cadena += '<' + element1.dia.substring(0, 2) + '>' + element1.horas + ' ' + element1.aula;
         }
-        listCursos.innerHTML += '<button type=\"button\" onclick="\eliminarCurso(' + i + ')"\ class=\"btn btn-secondary btn-sm\" href=\"#\" title=\"' + element.Nombre + '\" data-toggle=\"popover\" data-trigger=\"hover\" data-content=\"[Ciclo: ' + element.Ciclo + '] [Creditos: ' + element.Creditos + '][' + cadena + '] \">' + element.Codigo + '</button>';
+        listCursos.innerHTML += '<button type=\"button\" onclick="\eliminarCurso(' + i + ')"\ class=\"btn btn-secondary btn-sm\" href=\"#\" title=\"' + element.Nombre + '\" data-toggle=\"popover\" data-trigger=\"hover\" data-content=\"[Ciclo: ' + element.Ciclo + '] [Creditos: ' + element.Creditos + '][' + cadena + '] \">' + element.Codigo + ' - ' + element.Nombre + '</button>';
     }
     var sc = document.createElement('script');
     sc.innerHTML = ' $(document).ready(function() {' +
