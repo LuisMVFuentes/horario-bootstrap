@@ -35,8 +35,11 @@ function retornarHoras(dia, hInicio, hFin, aula) {
 var horas = [];
 
 function agregarhoras() {
-    if (!(dia.value === -1 || hInicio.value === -1 || hFin.value === -1 || hInicio.value >= hFin.value)) {
-        horas.push(retornarHoras(diasdelasemana[dia.value], hInicio.value, hFin.value, aula.value))
+    var auxDia = parseInt(dia.value);
+    var auxHinicio = parseInt(hInicio.value);
+    var auxHfin = parseInt(hFin.value);
+    if (!(auxDia === -1 || auxHinicio === -1 || auxHfin === -1 || auxHinicio >= auxHfin)) {
+        horas.push(retornarHoras(diasdelasemana[auxDia], auxHinicio, auxHfin, aula.value))
         tblHoras.innerHTML = '<tr>' +
             '<th>Dia</th>' +
             '<th>Horas</th>' +
@@ -68,15 +71,17 @@ function newCurso(nombre, ciclo, color, codigo, creditos, hora) {
 }
 
 function agregarCursos() {
+    console.log(horas);
     if (!(nombre.value === '' || ciclo.value === '' || codigo.value === '' || color.value === '' || creditos.value === '' || horas.length === 0)) {
         var curso = newCurso(nombre.value, ciclo.value, color.value, codigo.value, creditos.value, horas);
         cursos.push(curso);
 
-        nombre.value = '';
+        /* nombre.value = '';
         ciclo.value = '';
         color.value = '';
         codigo.value = '';
         creditos.value = '';
+         */
         horas = [];
         tblHoras.innerHTML = '<tr>' +
             '<th>Dia</th>' +
@@ -85,8 +90,8 @@ function agregarCursos() {
             '</tr>';
         cargarListas();
     }
-    console.log(cursos);
 
+    cargarCursosList();
     cargarHorario();
     rellenar();
 }
@@ -132,20 +137,19 @@ function rellenar() {
                                 }
                                 var tr1 = document.createElement('div');
 
-                                var td1 = document.createElement('div');
 
-                                td1.setAttribute('style', 'background-color:' + cursos[i].Color)
-                                td1.setAttribute('data-toggle', 'tooltip');
-                                td1.setAttribute('data-placement', 'top');
-                                td1.setAttribute('title', cursos[i].Nombre + "\n" + 'Aula: ' + cursos[i].Hora[j].aula);
+                                tr1.setAttribute('style', 'background-color:' + cursos[i].Color)
+                                    /**data-toggle="tooltip" data-placement="top" title="Tooltip on top" */
+                                tr1.setAttribute('data-toggle', 'tooltip');
+                                tr1.setAttribute('data-placement', 'top');
+                                tr1.setAttribute('title', cursos[i].Nombre);
+
+
                                 var texto1 = document.createTextNode(cursos[i].Codigo);
-                                td1.appendChild(texto1);
-                                tr1.appendChild(td1);
+
+                                tr1.appendChild(texto1);
                                 tablacasillero.appendChild(tr1);
                                 casillero1.appendChild(tablacasillero);
-
-
-
                                 //document.getElementById(pintar2).innerHTML = cursos[i].Codigo;
                             };
                         };
@@ -155,3 +159,33 @@ function rellenar() {
         };
     };
 };
+
+function cargarCursosList() {
+    listCursos.innerHTML = '';
+    for (let i = 0; i < cursos.length; i++) {
+        const element = cursos[i];
+        var cadena = '';
+        for (let j = 0; j < element.Hora.length; j++) {
+            const element1 = element.Hora[j];
+            cadena += '<' + element1.dia.substring(0, 2) + '>' + element1.horas + ' ' + element1.aula;
+        }
+        listCursos.innerHTML += '<li><button type=\"button\" onclick="\eliminarCurso(' + i + ')"\ class=\"btn btn-secondary btn-sm\" href=\"#\" title=\"' + element.Nombre + '\" data-toggle=\"popover\" data-trigger=\"hover\" data-content=\"[Ciclo: ' + element.Ciclo + '] [Creditos: ' + element.Creditos + '][' + cadena + '] \">' + element.Codigo + '</button></li>';
+    }
+    var sc = document.createElement('script');
+    sc.innerHTML = ' $(document).ready(function() {' +
+        '$(\'[data-toggle="popover"]\').popover();' +
+        '$(\'[data-toggle="tooltip"]\').tooltip()' +
+        '});';
+    listCursos.appendChild(sc);
+}
+
+
+function eliminarCurso(indice) {
+    if (confirm('¿Desea Eliminar ' + cursos[indice].Codigo + ' - ' + cursos[indice].Nombre + ' ?')) {
+        cursos.splice(indice, 1);
+        cargarCursosList();
+        cargarHorario();
+        rellenar();
+    }
+
+}
